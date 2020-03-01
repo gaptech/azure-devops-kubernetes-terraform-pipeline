@@ -1,3 +1,7 @@
+provider "azurerm" {
+   features {}
+}
+
 resource "azurerm_resource_group" "resource_group" {
   name     = "${var.resource_group}_${var.environment}"
   location = var.location
@@ -9,7 +13,8 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   resource_group_name = azurerm_resource_group.resource_group.name
   dns_prefix          = var.dns_prefix
 
-  linux_profile {
+  
+    linux_profile {
     admin_username = "ubuntu"
 
     ssh_key {
