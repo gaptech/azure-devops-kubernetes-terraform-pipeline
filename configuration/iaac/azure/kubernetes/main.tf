@@ -9,6 +9,9 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   resource_group_name = azurerm_resource_group.resource_group.name
   dns_prefix          = var.dns_prefix
 
+  features{
+  }
+  
   linux_profile {
     admin_username = "ubuntu"
 
